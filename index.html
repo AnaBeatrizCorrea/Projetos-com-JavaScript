@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+
+
+<label for="n1">NUMERO 1:</label>
+<input type="number" name="n1" id="n1">
+<br>
+<label for="n2">NUMERO 2:</label>
+<input type="number" name="n2" id="n2">
+<br>
+<input type="button" value="SOMAR" onclick="somar();">
+<input type="button" value="SUBTRAIR" onclick="subtrair();">
+<input type="button" value="DIVIDIR" onclick="dividir();">
+<input type="button" value="MULTIPLICAR" onclick="multiplicar();">
+<input type="button" value="POTENCIAR" onclick="potenciar();">
+<input type="button" value="RAIZ" onclick="raiz();">
+<br>
+<br>
+<p>Calculadora de área de triângulo</p>
+<br>
+<input type="number" name="l1" id="l1">
+<input type="number" name="l1" id="l2">
+<br>
+<input type="button" value="CALCULAR" onclick="areaTriangulo();">
+<br>
+<br>
+<p> Quantas horas, dias, semanas e anos você tem (Indique o ano do seu nascimento para descobrir)?</p>
+<input type="number" name="anoNascimento" id="anoNascimento">
+<input type="button" value="CALCULE" onclick="quantosAnos();">
+<br>
+<p> Saber se um número aleatorio de 0 até 10 é par ou impar</p>
+<br>
+<input type="button" value="INFORME" onclick="numAleatorio();">
+<br>
+<p>Calcular o aumento do salário</p> 
+<br>
+<input type="number" name="reais" id="reais">
+<input type="number" name="porcem" id="porcem">
+<br>
+<input type="button" value="Informe" onclick="salario();">
+<br>
+<br>
+<p> Nota Ponderada (a primeira vale 30% e a segunda 70%)</p>
+<br>
+<input type="number" name="nota1" id="nota1">
+<br>
+<input type="number" name="nota2" id="nota2">
+<br>
+<input type= "button" value="Media" onclick="notaPonderada();">
+<br>
+<br>
+<p> Consumo médio</p>
+<label for="litros">Combustivel em litros: </label>
+<input type="number" name="litros" id="litros">
+<br>
+<label for="km">Quilometros percorridos:</label>
+<input type="number" name="km" id="km">
+<br>
+<br>
+<input type="button" value="Media" onclick="consumomedio();">
+<p> Seu salário é pago por hora, se fizer mais de 40 horas recebe três vezes mais e é feito um desconto de R$ 1,50 a cada 8 horas. </p>
+<label for="valor">Informe seu valor recebido por horas trabalhadas:</label>
+<input type="number" name="valor" id="valor">
+<br>
+<label for="horas">Informe quantas horas foram trabalhadas:</label>
+<input type="number" name="horas" id="horas">
+<br>
+<input type="button" value="INFORMAR" onclick="porhora();">
+<script>
+function somar(){
+    let n1 = Number(document.getElementById("n1").value);
+    let n2 = Number(document.getElementById("n2").value);
+    let resultado = n1 + n2;
+    alert("o resultado é:"+resultado);
+}
+    function subtrair() {
+        let n1 = Number(document.getElementById("n1").value);
+        let n2 = Number(document.getElementById("n2").value);
+        let resultado = n1-n2;
+        alert("o resultado é:"+ resultado);
+    }
+    function dividir() {
+            let n1 = Number(document.getElementById("n1").value);
+            let n2 = Number(document.getElementById("n2").value);
+            let resultado = n1/n2;
+            alert("o resultado é:"+ resultado);
+        }
+    function multiplicar() {
+                let n1 = Number(document.getElementById("n1").value);
+                let n2 = Number(document.getElementById("n2").value);
+                let resultado = n1*n2;
+                alert("o resultado é:"+ resultado);
+            }
+    function potenciar(){
+            let n1 = Number(document.getElementById("n1").value);
+            let n2 = Number(document.getElementById("n2").value);
+            let resultado1 = n1 ** 2;
+            let resultado2 = n2 ** 2;
+            alert("o resultado da potência do primeiro número é:" + resultado1 + "\no resultado da potência do segundo número é:" + resultado2);    
+        }  
+    function raiz() {
+                        let n1 = Number(document.getElementById("n1").value);
+                        let n2 = Number(document.getElementById("n2").value);
+                        let resultado1 = n1 ** (1/2);
+                        let resultado2 = n2 ** (1/2);
+                        alert("o resultado da raiz do primeiro número é:" + resultado1 + "\no resultado da raiz do segundo número é:" + resultado2);
+                    }  
+    function areaTriangulo(){
+        let l1 = Number(document.getElementById("l1").value);
+        let l2 = Number(document.getElementById("l2").value);
+        let area= (l1*l2)/3;
+        alert("A área é:" + area);
+    }
+    function quantosAnos(){
+        const anoAtual=2026;
+        let anoNascimento = Number(document.getElementById("anoNascimento").value);
+        let anos= anoAtual-anoNascimento;
+        let meses=anos*12;
+        let dias=anos*365;
+        let semanas=dias/7;
+        let horas=dias*24;
+        let Idade = "Você tem "+horas+ " horas, "+dias+" dias, "+semanas+" semanas, "+meses+" meses e "+anos+" anos.";
+        alert(Idade);
+    }
+    function numAleatorio(){
+    let aleatorio=Math.random() * 11; // Gera um número entre 0 e 10
+    let numero=Math.floor(aleatorio); // Arredonda para o inteiro mais próximo
+    alert("O " + numero+ " ele é"+ (numero%2===0 ? " par." : " impar.") );
+    }
+
+function salario(){
+    const reais = Number(document.getElementById("reais").value);
+    const porcem = Number(document.getElementById("porcem").value);
+    const porcentagem= porcem/100;
+    const salario = reais + (reais*porcentagem);
+    alert("Seu salario era: "+ reais + ", a porcentagem do aumento é "+porcem+ "%, o novo salário é " + salario + ".");
+}
+
+    function notaPonderada(){
+        let nota1= Number(document.getElementById("nota1").value);
+        let nota2= Number(document.getElementById("nota2").value);
+        let mediaPonderada= ((nota1*3)+(nota2*7))/10;
+        alert("A média ponderada é "+ mediaPonderada);
+    }
+
+    function consumomedio(){
+        let distancia= Number(document.getElementById("km").value);
+        let combustivel= Number(document.getElementById("litros").value);
+        let consumo= distancia/combustivel;
+        alert("O consumo médio é "+ consumo + " km/l");
+    }
+
+function porhora(){
+    const pgporhora=Number(document.getElementById("valor").value);
+    const h = Number(document.getElementById("horas").value);
+    if(h>40){
+    const desconto= (h/8)*1.5;
+    const salariob = ((h * 3) * pgporhora )- desconto;
+    const salariol=h*pgporhora;
+    } else{
+    salariol= salario = h * pgporhora;
+}
+alert("Salário Bruto:" + salariob+"/n Desconto por refeição:"+desconto+"/n Salário Liquido:"+salariol);
+}
+
+</script>
+</body>
+</html>
